@@ -7,12 +7,12 @@ import { FormattedPrice } from 'vtex.formatted-price'
 import { useSellers } from '../../hooks/useSellers';
 import { OrdersContext } from '../../OrdersContext';
 import { getTotalBySeller, getTotalOrdersBySeller } from '../../utils/sellers';
+import { Seller } from '../../types/sellers';
 
 const UserTable = () => {
 
   const { sellers, loading } = useSellers()
   const ordersContext = useContext(OrdersContext)
-
 
   const data = useMemo(() => {
     if (!sellers || !sellers.length) return []
@@ -23,7 +23,8 @@ const UserTable = () => {
         ProdActive: 600,
         ProdInactive: 30,
         TotalSales: getTotalBySeller(seller.Name, ordersContext?.[2]),
-        Orders: getTotalOrdersBySeller(seller.Name, ordersContext?.[2])
+        Orders: getTotalOrdersBySeller(seller.Name, ordersContext?.[2]),
+        SellerId: seller.SellerId
       }
     })
   }, [sellers, ordersContext])
@@ -34,31 +35,35 @@ const UserTable = () => {
     properties: {
       Name: {
         title: 'Seller',
-        width: 150,
+        width: 350,
       },
       Orders: {
         title: 'Pedidos',
-        width: 80,
+        width: 120,
       },
       TotalSales: {
         title: "Ventas",
-        width: 175,
+        width: 250,
         cellRenderer: ({ cellData: totalSales }: { cellData: number }) => totalSales ? <FormattedPrice value={totalSales} /> : 0
       },
       ProductCommissionPercentage: {
         title: "Comision",
-        width: 80,
+        width: 120,
         cellRenderer: ({ cellData: comission }: { cellData: number }) => `${comission}%`
       },
       ProdActive: {
         title: 'Prod. Activos',
-        width: 120,
+        width: 200,
       },
       ProdInactive: {
         title: 'Prod. Inactivos',
-        width: 120,
+        width: 200,
       },
     },
+  }
+
+  const handleClickTable = (sellerId: string) => {
+    window.open(`/admin/dashboard-sellers/${sellerId}`, '_blank');
   }
 
   return (
@@ -68,8 +73,8 @@ const UserTable = () => {
         schema={schema}
         items={data}
         indexColumnLabel="Index"
-        onRowClick={({ rowData }: any) => {
-          alert(`you just clicked the row with ${rowData}`)
+        onRowClick={({ rowData: seller }: { rowData: Seller }) => {
+          handleClickTable(seller.SellerId)
         }}
       />
     </div>

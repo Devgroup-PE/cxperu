@@ -11,3 +11,8 @@ export const getTotalBySeller = (id: string, orders: Order[] | undefined): numbe
   })
   return total
 }
+
+
+export const getOrdersBySeller = (id: string, orders: Order[] | undefined): Order[] => {
+  return orders?.filter(order => order.sellerNames.includes(id)) || []
+}

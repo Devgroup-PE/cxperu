@@ -2,5 +2,9 @@
   "admin.app.sellers-dashboard": {
     "component": "AdminOrders",
     "path": "/admin/app/dashboard-sellers"
+  },
+  "admin.app.seller-detail": {
+    "component": "AdminSellerDetail",
+    "path": "/admin/app/dashboard-sellers/:id"
   }
 }

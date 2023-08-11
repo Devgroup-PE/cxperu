@@ -13,6 +13,7 @@
     "react-apollo": "^3.1.5",
     "react-dom": "^16.8.6",
     "react-intl": "^2.7.2",
+    "tiendademascotasar.admin-branchoffices": "http://tiendademascotasar.vtexassets.com/_v/public/typings/v1/tiendademascotasar.admin-branchoffices@0.0.13/public/@types/tiendademascotasar.admin-branchoffices",
     "typescript": "3.9.7",
     "vtex.admin-orders": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.admin-orders@0.146.1/public/@types/vtex.admin-orders",
     "vtex.formatted-price": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.formatted-price@0.7.0/public/@types/vtex.formatted-price",
@@ -26,6 +27,7 @@
     "@vtex/admin-ui": "^0.136.1",
     "faker": "^4.1.0",
     "react-csv": "^2.2.2",
-    "recharts": "^2.1.12"
+    "react-router-dom": "^6.15.0",
+    "recharts": "^2.7.3"
   }
 }

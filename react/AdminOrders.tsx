@@ -5,14 +5,16 @@ import Header from './components/Header'
 import Summary from './components/Summary'
 import Orders from './OrdersContext'
 import { ToastProvider } from 'vtex.styleguide'
+import Chart from './components/Summary/Chart'
 
-const AdminExample: FC = () => {
+const AdminSeller: FC = () => {
   return (
     <ToastProvider>
       <Orders>
         <Header />
         <div>
           <Summary />
+          <Chart />
           <UsersTable />
         </div>
       </Orders>
@@ -20,4 +22,4 @@ const AdminExample: FC = () => {
   )
 }
 
-export default AdminExample
+export default AdminSeller

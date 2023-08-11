@@ -52,8 +52,6 @@ const Orders: FC = ({ children }) => {
     }
   }, [ordersResponse.data?.ordersExtendSearch?.list])
 
-  console.log("CONSULTANDO ORDENES", ordersResponse.data, ordersResponse.loading)
-
   return (
     <OrdersContext.Provider value={[ordersResponse.refetch, ordersResponse, orders]}>
       {children}
