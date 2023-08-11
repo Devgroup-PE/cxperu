@@ -1,9 +1,9 @@
 {
-  "admin-branchoffices.navigation.label-group": "Example admins",
-  "admin-branchoffices.navigation.label-table": "Example table",
+  "admin-branchoffices.navigation.label-group": "Sellers",
+  "admin-branchoffices.navigation.label-table": "Reports",
   "admin-branchoffices.navigation.search.kws": "test, mock, fake",
   "admin-branchoffices.navigation.details.search.kws": "details, mock, test, hello",
   "admin-branchoffices.navigation.table.search.kws": "table, mock, test, bye",
-  "admin-branchoffices.hello-world": "Example Admin",
+  "admin-branchoffices.hello-world": "Report Sellers",
   "admin-branchoffices.details": "Details page"
 }

@@ -1,10 +1,6 @@
 {
-  "admin.app.example": {
+  "admin.app.sellers-dashboard": {
     "component": "AdminOrders",
-    "path": "/admin/app/orders-sellers"
-  },
-  "admin.app.example-detail": {
-    "component": "AdminExampleDetail",
-    "path": "/admin/app/orders-sellers/:id"
+    "path": "/admin/app/dashboard-sellers"
   }
 }

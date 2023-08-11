@@ -1,71 +1,62 @@
-import React, { useContext } from 'react'
+import React, { useContext, useMemo } from 'react'
 import {
   Table,
-  Tag,
 } from 'vtex.styleguide'
-import { OrdersContext } from '../../OrdersContext'
-import { Total } from '../../types/orders'
 import styles from './index.css'
 import { FormattedPrice } from 'vtex.formatted-price'
 import { useSellers } from '../../hooks/useSellers';
+import { OrdersContext } from '../../OrdersContext';
+import { getTotalBySeller, getTotalOrdersBySeller } from '../../utils/sellers';
 
 const UserTable = () => {
 
   const { sellers, loading } = useSellers()
   const ordersContext = useContext(OrdersContext)
 
-  if(!ordersContext?.[2].length || loading) return <>Cargando...</>
+
+  const data = useMemo(() => {
+    if (!sellers || !sellers.length) return []
+    return sellers.map(seller => {
+      return {
+        Name: seller.Name,
+        ProductCommissionPercentage: seller.ProductCommissionPercentage,
+        ProdActive: 600,
+        ProdInactive: 30,
+        TotalSales: getTotalBySeller(seller.Name, ordersContext?.[2]),
+        Orders: getTotalOrdersBySeller(seller.Name, ordersContext?.[2])
+      }
+    })
+  }, [sellers, ordersContext])
+
+  if (loading) return <>Cargando...</>
 
   const schema = {
     properties: {
-      clientEmail: {
-        title: 'Email',
-        width: 320,
+      Name: {
+        title: 'Seller',
+        width: 150,
       },
-      totals:{
-        title: "Total de los items",
+      Orders: {
+        title: 'Pedidos',
+        width: 80,
+      },
+      TotalSales: {
+        title: "Ventas",
         width: 175,
-        cellRenderer: ({cellData: totals}: {cellData: Total[]}) => {
-          const price = totals?.find(total=> total.id === 'Items')?.value
-          return (
-            <>
-              {price && <FormattedPrice value={price}/>}
-            </>
-          )
-        }
+        cellRenderer: ({ cellData: totalSales }: { cellData: number }) => totalSales ? <FormattedPrice value={totalSales} /> : 0
       },
-      creationDate: {
-        title: 'Fecha de compra',
-        width: 250,
-        cellRenderer: ({cellData: date}: {cellData: string}) => {
-          const datePurchase = new Date(date)
-          const day = datePurchase.getDate()
-          let month: string | number = datePurchase.getMonth() + 1
-          const year = datePurchase.getFullYear();
-
-          (month && month<10)
-            ? month = `0${month}`
-            : month = `${month}`
-
-          return (
-            <>
-              {`${day}/${month}/${year}`}
-            </>
-          )
-        }
+      ProductCommissionPercentage: {
+        title: "Comision",
+        width: 80,
+        cellRenderer: ({ cellData: comission }: { cellData: number }) => `${comission}%`
       },
-      sellerNames: {
-        title: 'Franquicia',
-        cellRenderer: ({ cellData }: any) => {
-          return (
-            <Tag
-              bgColor={sellers.find(seller=> seller.Name == cellData[0])?.color}
-              color="#fff"
-            >
-              <span className="nowrap">{cellData[0]}</span>
-            </Tag>
-          )
-        },
+      ProdActive: {
+        title: 'Prod. Activos',
+        width: 120,
+      },
+      ProdInactive: {
+        title: 'Prod. Inactivos',
+        width: 120,
       },
     },
   }
@@ -75,7 +66,7 @@ const UserTable = () => {
       <Table
         fullWidth
         schema={schema}
-        items={ordersContext[2]}
+        items={data}
         indexColumnLabel="Index"
         onRowClick={({ rowData }: any) => {
           alert(`you just clicked the row with ${rowData}`)

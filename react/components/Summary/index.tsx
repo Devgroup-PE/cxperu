@@ -1,19 +1,19 @@
 import React from 'react'
-import Chart from './Chart'
+import Totals from './Totals'
 import styles from './index.css'
 import Sellers from './Sellers'
 
-const Stores = () => {
+const Summary = () => {
   return (
     <div className={styles['branchoffices-stores']}>
       <div className={`${styles['branchoffices-stores__chart']} pl0 pr0`}>
-        <Chart/>
+        <Totals />
       </div>
       <div className={styles['branchoffices-stores__sellers']}>
-        <Sellers/>
+        <Sellers />
       </div>
     </div>
   )
 }
 
-export default Stores
+export default Summary

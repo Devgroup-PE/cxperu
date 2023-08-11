@@ -2,18 +2,21 @@ import React, { FC } from 'react'
 import './styles.global.css'
 import UsersTable from './components/Table'
 import Header from './components/Header'
-import Stores from './components/Stores'
+import Summary from './components/Summary'
 import Orders from './OrdersContext'
+import { ToastProvider } from 'vtex.styleguide'
 
 const AdminExample: FC = () => {
   return (
-    <Orders>
-      <Header/>
-      <div>
-        <Stores/>
-        <UsersTable/>
-      </div>
-    </Orders>
+    <ToastProvider>
+      <Orders>
+        <Header />
+        <div>
+          <Summary />
+          <UsersTable />
+        </div>
+      </Orders>
+    </ToastProvider>
   )
 }
 

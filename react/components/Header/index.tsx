@@ -2,17 +2,17 @@ import React, { useContext } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Button } from 'vtex.styleguide'
 import styles from './index.css'
-import { Helmet } from 'vtex.render-runtime'
+import { Helmet, useRuntime } from 'vtex.render-runtime'
 //@ts-ignore
 import { CSVLink } from 'react-csv';
 import { OrdersContext } from '../../OrdersContext'
-import { useFetch } from '../../hooks/useFetch'
+import { ToastConsumer } from 'vtex.styleguide'
 
-const cleanData = (data:any) => {
+const cleanData = (data: any) => {
   const newData: any[] = []
 
 
-  data.forEach((reg:any)=> {
+  data.forEach((reg: any) => {
     delete reg.__typename
     delete reg.totals
 
@@ -23,16 +23,27 @@ const cleanData = (data:any) => {
 }
 
 const Header = () => {
-
-  const FILENAME = 'reporte-ordenes-tiendademascotas'
-  const { data, loading:loadingNewsletter } = useFetch('/api/dataentities/CL/scroll?_where=store%20is%20not%20null&_fields=email,store')
+  const { account } = useRuntime()
+  const FILENAME = `report-${account}`
   const ordersContext = useContext(OrdersContext)
 
   const {
     loading
   } = ordersContext![1]
 
-  console.log(data)
+  const handleExport = (showToast: ({ }) => void) => {
+
+    if (!cleanData(ordersContext?.[2]).length) {
+      showToast({
+        message: 'No hay ordenes por exportar',
+        duration: 5000,
+        horizontalPosition: 'right'
+      })
+      return false
+    }
+
+    return true
+  }
 
   return (
     <>
@@ -42,23 +53,20 @@ const Header = () => {
       <header className={styles['branchoffices-header']}>
         <FormattedMessage id="admin-branchoffices.hello-world" />
         <div>
-          <div className='mr-5'>
-            <Button variation="secondary">
-              <CSVLink
-                data={!data?[]:data}
-                filename={"Suscritos al newsletter"}
-              >
-                {(loadingNewsletter) ? 'Cargando...' : 'Suscritos al newsletter'}
-              </CSVLink>
-            </Button>
-          </div>
-          <Button>
-            <CSVLink
-              data={cleanData(ordersContext?.[2] || [])}
-              filename={FILENAME}
-            >
-              {loading ? 'Cargando...' : 'Exportar'}
-            </CSVLink>
+          <Button isLoading={loading}>
+            <ToastConsumer>
+              {
+                ({ showToast }: { showToast: ({ }) => void }) => (
+                  <CSVLink
+                    data={cleanData(ordersContext?.[2] || [])}
+                    filename={FILENAME}
+                    onClick={() => handleExport(showToast)}
+                  >
+                    Exportar
+                  </CSVLink>
+                )
+              }
+            </ToastConsumer>
           </Button>
         </div>
       </header>

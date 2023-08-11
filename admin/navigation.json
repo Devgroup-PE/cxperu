@@ -1,13 +1,14 @@
-{
-  "section": "orders",
-  "titleId": "admin-branchoffices.navigation.label-group",
-  "subSection": "example",
-  "searchKeyWordsHelpers": "admin-branchoffices.navigation.search.kws",
-  "subSectionItems": [
-    {
-      "labelId": "admin-branchoffices.navigation.label-table",
-      "path": "/admin/orders-sellers",
-      "searchKeyWordsHelpers": "admin-branchoffices.navigation.table.search.kws"
-    }
-  ]
-}
+[
+  {
+    "section": "marketplace",
+    "titleId": "admin-branchoffices.navigation.label-group",
+    "subSection": "sellers",
+    "adminVersion": 4,
+    "subSectionItems": [
+      {
+        "labelId": "admin-branchoffices.navigation.label-table",
+        "path": "/admin/dashboard-sellers"
+      }
+    ]
+  }
+]
