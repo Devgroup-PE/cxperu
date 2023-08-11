@@ -1,0 +1,25 @@
+{
+  "name": "admin-branchoffices",
+  "vendor": "tiendademascotasar",
+  "version": "0.0.13",
+  "title": "Branchoffices",
+  "description": "",
+  "mustUpdateAt": "2022-08-28",
+  "scripts": {
+    "postreleasy": "vtex publish"
+  },
+  "dependencies": {
+    "vtex.styleguide": "9.x",
+    "vtex.store-graphql": "2.x",
+    "vtex.orders-graphql": "0.x",
+    "vtex.admin-orders": "0.x",
+    "vtex.formatted-price": "0.x"
+  },
+  "builders": {
+    "react": "3.x",
+    "admin": "0.x",
+    "messages": "1.x",
+    "docs": "0.x"
+  },
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}

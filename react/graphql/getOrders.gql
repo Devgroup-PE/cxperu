@@ -1,0 +1,31 @@
+query getOrdersSellers ($options: OrdersInput!) {
+  ordersExtendSearch(
+    options: $options
+  ) @context(provider: "vtex.orders-graphql") {
+    currencies{
+      currencyCode
+      quantity
+      value
+    }
+    paging{
+      total
+      perPage
+      pages
+      currentPage
+    }
+    list{
+      sellerOrderId
+      clientEmail,
+      creationDate
+      totals{
+        id
+        name
+        value
+      }
+      status
+      totalValue
+      sellerNames
+    }
+    reportRecordsLimit
+  }
+}

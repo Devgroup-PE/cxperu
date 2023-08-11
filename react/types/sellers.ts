@@ -1,0 +1,29 @@
+export interface Seller {
+  UrlLogo:                      string;
+  SellerId:                     string;
+  Name:                         string;
+  Email:                        string;
+  Description:                  string;
+  ExchangeReturnPolicy:         string;
+  DeliveryPolicy:               null;
+  SecutityPrivacyPolicy:        string;
+  CNPJ:                         null;
+  CSCIdentification:            null;
+  ArchiveId:                    null;
+  ProductCommissionPercentage:  number;
+  FreightCommissionPercentage:  number;
+  CategoryCommissionPercentage: string;
+  FulfillmentEndpoint:          string;
+  CatalogSystemEndpoint:        string;
+  IsActive:                     boolean;
+  IsBetterScope:                boolean;
+  MerchantName:                 null;
+  UserName:                     null;
+  Password:                     null;
+  UseHybridPaymentOptions:      boolean;
+  FulfillmentSellerId:          null;
+  SellerType:                   number;
+  trustPolicy:                  string;
+  Groups:                       any[];
+  color?:                        string;
+}

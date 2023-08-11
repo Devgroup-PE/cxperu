@@ -1,0 +1,9 @@
+{
+  "admin-branchoffices.navigation.label-group": "Vendedores",
+  "admin-branchoffices.navigation.label-table": "Pedidos",
+  "admin-branchoffices.navigation.search.kws": "teste, mock, fake",
+  "admin-branchoffices.navigation.details.search.kws": "detalhe, mock, test, oi",
+  "admin-branchoffices.navigation.table.search.kws": "tabela, mock, test, tchau",
+  "admin-branchoffices.hello-world": "Pedidos por vendedor",
+  "admin-branchoffices.details": "Página de detalles"
+}

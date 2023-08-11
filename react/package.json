@@ -1,0 +1,31 @@
+{
+  "name": "vtex.admin-branchoffices",
+  "version": "0.0.12",
+  "devDependencies": {
+    "@types/node": "^11.12.1",
+    "@types/react": "^16.8.10",
+    "@types/react-intl": "^2.3.17",
+    "@vtex/tsconfig": "^0.4.4",
+    "apollo-client": "^2.4.7",
+    "graphql": "^14.0.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-apollo": "^3.1.5",
+    "react-dom": "^16.8.6",
+    "react-intl": "^2.7.2",
+    "tiendademascotasar.admin-branchoffices": "https://tdm71--tiendademascotasar.myvtex.com/_v/private/typings/linked/v1/tiendademascotasar.admin-branchoffices@0.0.12+build1658350687/public/@types/tiendademascotasar.admin-branchoffices",
+    "typescript": "3.9.7",
+    "vtex.admin-orders": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.admin-orders@0.125.4/public/@types/vtex.admin-orders",
+    "vtex.formatted-price": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.formatted-price@0.5.0/public/@types/vtex.formatted-price",
+    "vtex.orders-graphql": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.orders-graphql@0.87.1/public/@types/vtex.orders-graphql",
+    "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.4/public/@types/vtex.render-runtime",
+    "vtex.store-graphql": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-graphql@2.152.2/public/@types/vtex.store-graphql",
+    "vtex.styleguide": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.styleguide@9.146.1/public/@types/vtex.styleguide"
+  },
+  "dependencies": {
+    "@types/faker": "^4.1.5",
+    "faker": "^4.1.0",
+    "recharts": "^2.1.12",
+    "react-csv": "^2.2.2"
+  }
+}

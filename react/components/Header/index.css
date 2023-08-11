@@ -1,0 +1,28 @@
+.branchoffices-header{
+  height: 4.5rem;
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dddddd;
+  position: sticky;
+  top: 0;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-size: 1.25rem;
+  background-color: #fff;
+  z-index: 99;
+}
+
+.branchoffices-header a{
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.branchoffices-header > div{
+  display: flex;
+  gap: 16px;
+}
+.branchoffices-header > div > div a{
+  color: unset !important;
+}
