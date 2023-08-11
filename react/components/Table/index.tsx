@@ -35,7 +35,7 @@ const UserTable = () => {
     properties: {
       Name: {
         title: 'Seller',
-        width: 350,
+        width: 400,
       },
       Orders: {
         title: 'Pedidos',
@@ -53,11 +53,11 @@ const UserTable = () => {
       },
       ProdActive: {
         title: 'Prod. Activos',
-        width: 200,
+        width: 220,
       },
       ProdInactive: {
         title: 'Prod. Inactivos',
-        width: 200,
+        width: 220,
       },
     },
   }

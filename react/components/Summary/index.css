@@ -1,4 +1,4 @@
-.branchoffices-stores{
+.branchoffices-stores {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 1rem;
@@ -6,50 +6,58 @@
 }
 
 .branchoffices-stores__sellers,
-.branchoffices-stores__chart{
+.branchoffices-stores__chart {
   background-color: #fefefe;
   border-radius: 5px;
   padding: 1rem;
   border: 1px solid #dddddd;
 }
 
-.branchoffices-stores__chart > div > div{
+.branchoffices-stores__chart>div>div {
   background-color: #F4F4F4;
-  border-radius: 30px;
+  border-radius: 20px;
   padding: 15px;
-  width: 200px;
+  width: 250px;
+  min-height: 150px;
   display: inline-block;
   margin-left: 20px;
   margin-bottom: 20px;
 }
 
-.branchoffices-stores__chart{
+.branchoffices-stores__chart {
   padding-left: 0;
 }
 
-.branchoffices-stores__sellers li{
+.branchoffices-stores__sellers li {
   list-style: none;
   padding-top: .5rem;
   padding-bottom: .5rem;
   padding-left: .25rem;
   padding-right: .25rem;
   border-bottom: 1px solid #ddd;
+  display: grid;
+  grid-template-columns: 1fr 28px 120px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
-.branchoffices-stores__sellers li span{
+.branchoffices-stores__sellers li span {
   display: inline-block;
 }
 
-.branchoffices-stores__sellers li h4{
+.branchoffices-stores__sellers li h4 {
+  display: inline-block;
+  font-weight: 400;
+}
+
+.branchoffices-stores__sellers li div {
   display: inline-block;
 }
 
-.branchoffices-stores__sellers li div{
-  display: inline-block;
-}
-
-.branchoffices-stores__sellers ul{
+.branchoffices-stores__sellers ul {
   padding-left: 0;
   margin-bottom: 0;
 }
+
 .branchoffices-stores__sellers h3 {}
