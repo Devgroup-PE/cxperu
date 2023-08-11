@@ -4,6 +4,7 @@
   gap: 1rem;
   padding: 1.75rem;
 }
+
 .branchoffices-stores__sellers,
 .branchoffices-stores__chart{
   background-color: #fefefe;
@@ -11,6 +12,17 @@
   padding: 1rem;
   border: 1px solid #dddddd;
 }
+
+.branchoffices-stores__chart > div > div{
+  background-color: #F4F4F4;
+  border-radius: 30px;
+  padding: 15px;
+  width: 200px;
+  display: inline-block;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
 .branchoffices-stores__chart{
   padding-left: 0;
 }
@@ -23,6 +35,19 @@
   padding-right: .25rem;
   border-bottom: 1px solid #ddd;
 }
+
+.branchoffices-stores__sellers li span{
+  display: inline-block;
+}
+
+.branchoffices-stores__sellers li h4{
+  display: inline-block;
+}
+
+.branchoffices-stores__sellers li div{
+  display: inline-block;
+}
+
 .branchoffices-stores__sellers ul{
   padding-left: 0;
   margin-bottom: 0;
